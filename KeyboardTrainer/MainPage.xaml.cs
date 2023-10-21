@@ -6,13 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace KeyboardTrainer
 {
@@ -53,12 +48,13 @@ namespace KeyboardTrainer
 
                     if (currentRow == Levels.countRows)
                     {
+                        textBox1.Text = "Игра пройдена!";
+                        MessageBox.Show("Игра пройдена!");
+
                         text.Clear();
 
                         currentRow = 0;
-                        current= 0;
-
-                        MessageBox.Show("Игра пройдена!");
+                        current = 0;
 
                         NavigationService.Navigate(new Levels());
 
@@ -85,7 +81,6 @@ namespace KeyboardTrainer
         private void Buttons_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             Button button = (Button)this.FindName(e.Key.ToString());
-            //MessageBox.Show(e.Key.ToString());
 
             if (button != null)
             {

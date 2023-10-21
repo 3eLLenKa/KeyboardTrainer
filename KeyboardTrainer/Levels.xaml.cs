@@ -27,10 +27,12 @@ namespace KeyboardTrainer
             InitializeComponent();
         }
 
-        public static int countRows = File.ReadAllLines("C:\\Users\\alexk\\OneDrive\\Рабочий стол\\first.txt").Length;
+        public static int countRows;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            countRows = File.ReadAllLines("C:\\Users\\alexk\\OneDrive\\Рабочий стол\\first.txt").Length;
+
             StreamReader reader = new StreamReader("C:\\Users\\alexk\\OneDrive\\Рабочий стол\\first.txt");
 
             for (int i = 0; i < countRows; i++)
@@ -38,14 +40,18 @@ namespace KeyboardTrainer
                 MainPage.text.Add(reader.ReadLine());
             }
 
+            reader.Close();
+
             NavigationService.Navigate(new MainPage());
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            countRows = File.ReadAllLines(@"C:\Users\alexk\OneDrive\Рабочий стол\second.txt").Length;
+
             StreamReader reader = new StreamReader(@"C:\Users\alexk\OneDrive\Рабочий стол\second.txt");
 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < countRows; i++)
             {
                 MainPage.text.Add(reader.ReadLine());
             }
@@ -57,9 +63,10 @@ namespace KeyboardTrainer
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            countRows = File.ReadAllLines(@"C:\Users\alexk\OneDrive\Рабочий стол\third.txt").Length;
             StreamReader reader = new StreamReader(@"C:\Users\alexk\OneDrive\Рабочий стол\third.txt");
 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < countRows; i++)
             {
                 MainPage.text.Add(reader.ReadLine());
             }
