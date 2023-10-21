@@ -1,0 +1,19 @@
+﻿<Page x:Class="KeyboardTrainer.Levels"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KeyboardTrainer"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="920"
+      Background="White"
+      Title="Levels">
+
+    <Grid>
+        <UniformGrid Columns="3">
+            <Button Content="First Level" Width="150" Height="150" Click="Button_Click"/>
+            <Button Content="Second Level" Width="150" Height="150" Click="Button_Click_1"/>
+            <Button Content="Third Level" Width="150" Height="150" Click="Button_Click_2"/>
+        </UniformGrid>
+    </Grid>
+</Page>
