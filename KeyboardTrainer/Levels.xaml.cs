@@ -21,17 +21,18 @@ namespace KeyboardTrainer
     /// </summary>
     public partial class Levels : Page
     {
-        //public static string? temp;
         public Levels()
         {
             InitializeComponent();
         }
 
         public static int countRows;
+        public static int countLetters;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             countRows = File.ReadAllLines("C:\\Users\\alexk\\OneDrive\\Рабочий стол\\first.txt").Length;
+            countLetters = File.ReadAllText("C:\\Users\\alexk\\OneDrive\\Рабочий стол\\first.txt").Length;
 
             StreamReader reader = new StreamReader("C:\\Users\\alexk\\OneDrive\\Рабочий стол\\first.txt");
 
@@ -48,6 +49,7 @@ namespace KeyboardTrainer
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             countRows = File.ReadAllLines(@"C:\Users\alexk\OneDrive\Рабочий стол\second.txt").Length;
+            countLetters = File.ReadAllText(@"C:\Users\alexk\OneDrive\Рабочий стол\second.txt").Length;
 
             StreamReader reader = new StreamReader(@"C:\Users\alexk\OneDrive\Рабочий стол\second.txt");
 
@@ -64,6 +66,8 @@ namespace KeyboardTrainer
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             countRows = File.ReadAllLines(@"C:\Users\alexk\OneDrive\Рабочий стол\third.txt").Length;
+            countLetters = File.ReadAllText(@"C:\Users\alexk\OneDrive\Рабочий стол\third.txt").Length;
+
             StreamReader reader = new StreamReader(@"C:\Users\alexk\OneDrive\Рабочий стол\third.txt");
 
             for (int i = 0; i < countRows; i++)

@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Timers;
 
 namespace KeyboardTrainer
 {
@@ -18,16 +19,31 @@ namespace KeyboardTrainer
     {
         public static List<string> text = new List<string>();
 
+        private Timer timer = new Timer(1000);
+
         private int current = 0;
         private int currentRow = 0;
+        private int seconds = 0;
 
         private char[] cyrillicChars = { 'ф', 'и', 'с', 'в', 'у', 'а', 'п', 'р', 'ш', 'о', 'л', 'д', 'ь', 'т', 'щ', 'з', 'й', 'к', 'ы', 'е', 'г', 'м', 'ц', 'ч', 'н', 'я' };
         public MainPage()
         {
             InitializeComponent();
 
+            progressBar.Maximum = Levels.countLetters > 1 ? Levels.countLetters - (3 * Levels.countRows - 3) : Levels.countLetters;
+
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
+
             textBox1.Text = text[currentRow];
             textBox1.Focus();
+        }
+
+        private void Timer_Elapsed(object? sender, ElapsedEventArgs e)
+        {
+            seconds++;
+            TimeSpan time = TimeSpan.FromSeconds(seconds);
+            Dispatcher.Invoke(() => timerTxtBlock.Text = "Время: " + time.ToString(@"mm\:ss"));
         }
 
         private void textBox1_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -49,7 +65,6 @@ namespace KeyboardTrainer
                     if (currentRow == Levels.countRows)
                     {
                         textBox1.Text = "Игра пройдена!";
-                        MessageBox.Show("Игра пройдена!");
 
                         text.Clear();
 
@@ -68,6 +83,8 @@ namespace KeyboardTrainer
                         return;
                     }
                 }
+
+                progressBar.Value++;
 
                 textBox1.SelectionStart = 0;
                 textBox1.SelectionLength = current + 1;
