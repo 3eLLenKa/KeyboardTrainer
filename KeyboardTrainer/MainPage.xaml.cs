@@ -10,6 +10,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Timers;
 using System.Diagnostics;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace KeyboardTrainer
 {
@@ -19,29 +21,31 @@ namespace KeyboardTrainer
     public partial class MainPage : Page
     {
         public static List<string> text = new List<string>();
-
-        private Timer timer = new Timer(1000);
         public static TimeSpan time;
 
-        private Stopwatch typingTimer = new Stopwatch();
-        private int typedCharacters = 0;
+        public static double target;
         public static double typingSpeed = 0.0;
 
+        public static SolidColorBrush color = Brushes.Violet;
+        public static SolidColorBrush background = Brushes.LightBlue;
 
+        private Stopwatch typingTimer = new Stopwatch();
+
+        private Timer timer = new Timer(1000);
+
+        private int typedCharacters = 0;
         private int current = 0;
         private int currentRow = 0;
+        private int seconds = 0;
 
         private double countCorrect = 0.0;
         private double countClicks = 0.0;
-
-        public static double target;
-
-        private int seconds = 0;
 
         private char[] cyrillicChars = { 'ф', 'и', 'с', 'в', 'у', 'а', 'п', 'р', 'ш', 'о', 'л', 'д', 'ь', 'т', 'щ', 'з', 'й', 'к', 'ы', 'е', 'г', 'м', 'ц', 'ч', 'н', 'я' };
         public MainPage()
         {
             InitializeComponent();
+            ChangeStyle();
 
             MainWindow.window.Title = "Тренировка";
 
@@ -61,6 +65,13 @@ namespace KeyboardTrainer
             Dispatcher.Invoke(() => timerTxtBlock.Text = "Время: " + time.ToString(@"mm\:ss"));
         }
 
+        private void ChangeStyle()
+        {
+            this.Background = background;
+            this.progressBar.Background = background;
+            this.progressBar.Foreground = color;
+        }
+
         private void textBox1_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             int index = (int)e.Key - (int)Key.A;
@@ -73,6 +84,24 @@ namespace KeyboardTrainer
                 typingTimer.Start();
             }
 
+            if (e.Key == Key.Escape)
+            {
+                var result = MessageBox.Show("Вы точно хотите выйти?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    timer.Stop();
+                    text.Clear();
+
+                    currentRow = 0;
+                    current = 0;
+
+                    typingTimer.Stop();
+
+                    NavigationService.GoBack();
+                }
+                else return;
+            }
 
             if (index >= 0 && index < cyrillicChars.Length)
             {
@@ -83,6 +112,7 @@ namespace KeyboardTrainer
             {
                 countCorrect++;
                 typedCharacters++;
+
 
                 if (current == textBox1.Text.Length - 1)
                 {
@@ -95,6 +125,7 @@ namespace KeyboardTrainer
 
                         text.Clear();
 
+                        progressBar.Value++; //костыль
                         currentRow = 0;
                         current = 0;
 
@@ -111,7 +142,7 @@ namespace KeyboardTrainer
                         MainWindow.window.Title = "Клавиатурный тренажер";
 
                         ResultWindow resultWindow = new ResultWindow();
-                        resultWindow.Show();
+                        resultWindow.ShowDialog();
 
                         NavigationService.Navigate(new Levels());
 
@@ -127,7 +158,6 @@ namespace KeyboardTrainer
                 }
 
                 progressBar.Value++;
-
                 textBox1.SelectionStart = 0;
                 textBox1.SelectionLength = current + 1;
                 textBox1.SelectionBrush = Brushes.Black;
@@ -142,7 +172,7 @@ namespace KeyboardTrainer
 
             if (button != null)
             {
-                button.Background = Brushes.Violet;
+                button.Background = color;
             }
         }
 

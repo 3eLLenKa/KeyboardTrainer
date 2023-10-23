@@ -24,10 +24,23 @@ namespace KeyboardTrainer
         public Levels()
         {
             InitializeComponent();
+            ChangeStyle();
         }
 
         public static int countRows;
         public static int countLetters;
+
+        public static SolidColorBrush color = Brushes.Violet;
+        public static SolidColorBrush background = Brushes.LightBlue;
+
+        private void ChangeStyle()
+        {
+            first.Background = color;
+            second.Background = color;
+            third.Background = color;
+
+            this.Background = background;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -78,6 +91,11 @@ namespace KeyboardTrainer
             reader.Close();
 
             NavigationService.Navigate(new MainPage());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SettingsPage());
         }
     }
 }

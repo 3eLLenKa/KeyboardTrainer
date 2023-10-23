@@ -22,11 +22,21 @@ namespace KeyboardTrainer
         public ResultWindow()
         {
             InitializeComponent();
+            ChangeStyle();
 
             timeTxt.Text += MainPage.time.ToString(@"mm\:ss");
             speedTxt.Text += MainPage.typingSpeed.ToString() + " зн./сек.";
             keyboardTxt.Text += Levels.countLetters.ToString();
             targetTxt.Text += MainPage.target.ToString() + "%";
+        }
+
+        public static SolidColorBrush color = Brushes.Violet;
+        public static SolidColorBrush background = Brushes.AliceBlue;
+
+        private void ChangeStyle()
+        {
+            border1.Background = color;
+            this.Background = background;
         }
     }
 }

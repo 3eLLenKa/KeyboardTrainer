@@ -1,0 +1,63 @@
+﻿<Page x:Class="KeyboardTrainer.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KeyboardTrainer"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="920"
+      Background="LightBlue"
+      Title="SettingsPage">
+
+    <Page.Resources>
+        <Style x:Key="CornerRadius" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="77*"/>
+            <RowDefinition Height="442*"/>
+            <RowDefinition Height="81*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock  Text="Настройки" FontSize="30" Width="150" Height="39" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <UniformGrid Grid.Row="1" Rows="2" Columns="2" VerticalAlignment="Center" Height="442">
+            <Button Width="306" Height="200" Margin="10" Style="{StaticResource CornerRadius}" Click="Violett_Click">
+                <Button.Content>
+                    <Image Source="/Resources/violett_theme.png"/>
+                </Button.Content>
+            </Button>
+            <Button Width="306" Height="200" Margin="10" Style="{StaticResource CornerRadius}" Click="Wheat_Click">
+                <Button.Content>
+                    <Image Source="/Resources/wheat_violett.png"/>
+                </Button.Content>
+            </Button>
+            <Button Width="306" Height="200" Margin="10" Style="{StaticResource CornerRadius}" Click="Lavanda_Click">
+                <Button.Content>
+                    <Image Source="/Resources/lavanda_pink.png"/>
+                </Button.Content>
+            </Button>
+            <Button Width="306" Height="200" Margin="10" Style="{StaticResource CornerRadius}" Click="White_Click">
+                <Button.Content>
+                    <Image Source="/Resources/white_blue.png"/>
+                </Button.Content>
+            </Button>
+        </UniformGrid>
+    </Grid>
+</Page>

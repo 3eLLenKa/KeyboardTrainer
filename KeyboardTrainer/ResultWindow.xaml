@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0"  TextWrapping="Wrap" Text="Вы прошли уровень!" Width="194" Height="27" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"/>
-        <Border Grid.Row="1" Margin="15" CornerRadius="20" Background="Violet">
+        <Border x:Name="border1"  Grid.Row="1" Margin="15" CornerRadius="20" Background="Violet">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50*"/>

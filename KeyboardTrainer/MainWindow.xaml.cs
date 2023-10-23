@@ -26,5 +26,10 @@ namespace KeyboardTrainer
             InitializeComponent();
             mainFrame.Navigate(new Levels());
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
