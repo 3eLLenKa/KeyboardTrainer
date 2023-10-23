@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.IO;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -23,10 +24,9 @@ namespace KeyboardTrainer
         public SettingsPage()
         {
             InitializeComponent();
-        }
 
-        private SolidColorBrush background = Brushes.LightBlue;
-        private SolidColorBrush color = Brushes.Violet;
+            this.Background = MainPage.background;
+        }
 
         private void Violett_Click(object sender, RoutedEventArgs e)
         {
@@ -60,8 +60,6 @@ namespace KeyboardTrainer
             Style progressBar = (Style)appResources["ButtonViolett"];
 
             this.Background = Brushes.Lavender;
-            background = Brushes.Lavender;
-            color = Brushes.Pink;
 
             MainPage.background = Brushes.Lavender;
             MainPage.color = Brushes.Pink;
@@ -85,8 +83,6 @@ namespace KeyboardTrainer
             Style progressBar = (Style)appResources["ButtonViolett"];
 
             this.Background = Brushes.Wheat;
-            background = Brushes.Wheat;
-            color = Brushes.BlueViolet;
 
             MainPage.background = Brushes.Wheat;
             MainPage.color = Brushes.BlueViolet;
@@ -110,8 +106,6 @@ namespace KeyboardTrainer
             Style progressBar = (Style)appResources["ButtonViolett"];
 
             this.Background = Brushes.White;
-            background = Brushes.White;
-            color = Brushes.LightBlue;
 
             MainPage.background = Brushes.White;
             MainPage.color = Brushes.LightBlue;

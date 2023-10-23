@@ -45,10 +45,10 @@ namespace KeyboardTrainer
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            countRows = File.ReadAllLines("C:\\Users\\alexk\\OneDrive\\Рабочий стол\\first.txt").Length;
-            countLetters = File.ReadAllText("C:\\Users\\alexk\\OneDrive\\Рабочий стол\\first.txt").Length;
+            countRows = File.ReadAllLines("D:\\first_lvl.txt").Length;
+            countLetters = File.ReadAllText("D:\\first_lvl.txt").Length;
 
-            StreamReader reader = new StreamReader("C:\\Users\\alexk\\OneDrive\\Рабочий стол\\first.txt");
+            StreamReader reader = new StreamReader("D:\\first_lvl.txt");
 
             for (int i = 0; i < countRows; i++)
             {
@@ -62,10 +62,10 @@ namespace KeyboardTrainer
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            countRows = File.ReadAllLines(@"C:\Users\alexk\OneDrive\Рабочий стол\second.txt").Length;
-            countLetters = File.ReadAllText(@"C:\Users\alexk\OneDrive\Рабочий стол\second.txt").Length;
+            countRows = File.ReadAllLines(@"D:\second_lvl.txt").Length;
+            countLetters = File.ReadAllText(@"D:\second_lvl.txt").Length;
 
-            StreamReader reader = new StreamReader(@"C:\Users\alexk\OneDrive\Рабочий стол\second.txt");
+            StreamReader reader = new StreamReader(@"D:\second_lvl.txt");
 
             for (int i = 0; i < countRows; i++)
             {
@@ -79,10 +79,10 @@ namespace KeyboardTrainer
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            countRows = File.ReadAllLines(@"C:\Users\alexk\OneDrive\Рабочий стол\third.txt").Length;
-            countLetters = File.ReadAllText(@"C:\Users\alexk\OneDrive\Рабочий стол\third.txt").Length;
+            countRows = File.ReadAllLines(@"D:\third_lvl.txt").Length;
+            countLetters = File.ReadAllText(@"D:\third_lvl.txt").Length;
 
-            StreamReader reader = new StreamReader(@"C:\Users\alexk\OneDrive\Рабочий стол\third.txt");
+            StreamReader reader = new StreamReader(@"D:\third_lvl.txt");
 
             for (int i = 0; i < countRows; i++)
             {

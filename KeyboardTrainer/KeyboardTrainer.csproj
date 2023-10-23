@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\first.txt" />
     <None Remove="Resources\icons8-time-48.png" />
     <None Remove="Resources\icons8-клавиатура-48.png" />
     <None Remove="Resources\icons8-настройки-25.png" />
@@ -21,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\first.txt" />
     <Resource Include="Resources\icons8-time-48.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -39,6 +37,21 @@
     <Resource Include="Resources\violett_theme.png" />
     <Resource Include="Resources\wheat_violett.png" />
     <Resource Include="Resources\white_blue.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
