@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\first.txt" />
     <None Remove="Resources\icons8-time-48.png" />
     <None Remove="Resources\icons8-клавиатура-48.png" />
     <None Remove="Resources\icons8-настройки-25.png" />
@@ -20,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\first.txt" />
     <Resource Include="Resources\icons8-time-48.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
