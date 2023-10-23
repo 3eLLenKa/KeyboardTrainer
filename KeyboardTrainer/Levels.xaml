@@ -6,14 +6,33 @@
       xmlns:local="clr-namespace:KeyboardTrainer"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="920"
-      Background="White"
+      Background="LightBlue"
       Title="Levels">
+
+    <Page.Resources>
+        <Style x:Key="CornerRadius" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Violet"/>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <UniformGrid Columns="3">
-            <Button Content="First Level" Width="150" Height="150" Click="Button_Click"/>
-            <Button Content="Second Level" Width="150" Height="150" Click="Button_Click_1"/>
-            <Button Content="Third Level" Width="150" Height="150" Click="Button_Click_2"/>
+            <Button Content="Первый" FontSize="20" Width="150" Height="150" Click="Button_Click" FontWeight="DemiBold" Style="{StaticResource CornerRadius}"/>
+            <Button Content=" Второй" FontSize="20" Width="150" Height="150" Click="Button_Click_1" FontWeight="DemiBold" Style="{StaticResource CornerRadius}"/>
+            <Button Content=" Третий" FontSize="20" Width="150" Height="150" Click="Button_Click_2" FontWeight="DemiBold" Style="{StaticResource CornerRadius}"/>
         </UniformGrid>
+        <TextBlock TextWrapping="Wrap" Width="281" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Text="Доступные уровни" Margin="0,70,0,0"/>
     </Grid>
 </Page>

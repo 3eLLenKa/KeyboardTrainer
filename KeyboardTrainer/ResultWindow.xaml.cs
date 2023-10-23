@@ -10,21 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace KeyboardTrainer
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для ResultWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ResultWindow : Window
     {
-        public static MainWindow window = new MainWindow();
-        public MainWindow()
+        public ResultWindow()
         {
             InitializeComponent();
-            mainFrame.Navigate(new Levels());
+
+            timeTxt.Text += MainPage.time.ToString(@"mm\:ss");
+            speedTxt.Text += MainPage.typingSpeed.ToString() + " зн./сек.";
+            keyboardTxt.Text += Levels.countLetters.ToString();
+            targetTxt.Text += MainPage.target.ToString() + "%";
         }
     }
 }

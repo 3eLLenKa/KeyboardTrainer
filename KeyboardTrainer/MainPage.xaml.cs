@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Timers;
+using System.Diagnostics;
 
 namespace KeyboardTrainer
 {
@@ -20,15 +21,29 @@ namespace KeyboardTrainer
         public static List<string> text = new List<string>();
 
         private Timer timer = new Timer(1000);
+        public static TimeSpan time;
+
+        private Stopwatch typingTimer = new Stopwatch();
+        private int typedCharacters = 0;
+        public static double typingSpeed = 0.0;
+
 
         private int current = 0;
         private int currentRow = 0;
+
+        private double countCorrect = 0.0;
+        private double countClicks = 0.0;
+
+        public static double target;
+
         private int seconds = 0;
 
         private char[] cyrillicChars = { 'ф', 'и', 'с', 'в', 'у', 'а', 'п', 'р', 'ш', 'о', 'л', 'д', 'ь', 'т', 'щ', 'з', 'й', 'к', 'ы', 'е', 'г', 'м', 'ц', 'ч', 'н', 'я' };
         public MainPage()
         {
             InitializeComponent();
+
+            MainWindow.window.Title = "Тренировка";
 
             progressBar.Maximum = Levels.countLetters > 1 ? Levels.countLetters - (3 * Levels.countRows - 3) : Levels.countLetters;
 
@@ -42,7 +57,7 @@ namespace KeyboardTrainer
         private void Timer_Elapsed(object? sender, ElapsedEventArgs e)
         {
             seconds++;
-            TimeSpan time = TimeSpan.FromSeconds(seconds);
+            time = TimeSpan.FromSeconds(seconds);
             Dispatcher.Invoke(() => timerTxtBlock.Text = "Время: " + time.ToString(@"mm\:ss"));
         }
 
@@ -51,6 +66,14 @@ namespace KeyboardTrainer
             int index = (int)e.Key - (int)Key.A;
             char cyrillicChar = ' ';
 
+            countClicks++;
+
+            if (current == 0)
+            {
+                typingTimer.Start();
+            }
+
+
             if (index >= 0 && index < cyrillicChars.Length)
             {
                 cyrillicChar = cyrillicChars[index];
@@ -58,18 +81,37 @@ namespace KeyboardTrainer
 
             if (cyrillicChar == textBox1.Text[current])
             {
+                countCorrect++;
+                typedCharacters++;
+
                 if (current == textBox1.Text.Length - 1)
                 {
                     currentRow += 1;
 
                     if (currentRow == Levels.countRows)
                     {
+                        timer.Stop();
                         textBox1.Text = "Игра пройдена!";
 
                         text.Clear();
 
                         currentRow = 0;
                         current = 0;
+
+                        typingTimer.Stop();
+                        double elapsedTimeInSeconds = typingTimer.Elapsed.TotalSeconds;
+
+                        if (elapsedTimeInSeconds > 0)
+                        {
+                            typingSpeed = Math.Round(typedCharacters / elapsedTimeInSeconds);
+                        }
+
+                        target = Math.Round((double)countCorrect / countClicks * 100);
+
+                        MainWindow.window.Title = "Клавиатурный тренажер";
+
+                        ResultWindow resultWindow = new ResultWindow();
+                        resultWindow.Show();
 
                         NavigationService.Navigate(new Levels());
 
@@ -92,7 +134,6 @@ namespace KeyboardTrainer
 
                 current += 1;
             }
-            else return;
         }
 
         private void Buttons_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -101,7 +142,7 @@ namespace KeyboardTrainer
 
             if (button != null)
             {
-                button.Background = Brushes.Red;
+                button.Background = Brushes.Violet;
             }
         }
 
