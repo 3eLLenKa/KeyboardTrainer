@@ -49,7 +49,7 @@ namespace KeyboardTrainer
 
             MainWindow.window.Title = "Тренировка";
 
-            progressBar.Maximum = Levels.countLetters > 1 ? Levels.countLetters - (3 * Levels.countRows - 3) : Levels.countLetters;
+            progressBar.Maximum = Levels.countLetters > 1 ? Levels.countLetters - (2 * Levels.countRows - 2) : Levels.countLetters;
 
             timer.Elapsed += Timer_Elapsed;
             timer.Start();

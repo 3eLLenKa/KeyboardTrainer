@@ -30,12 +30,6 @@ namespace KeyboardTrainer
 
         private void Violett_Click(object sender, RoutedEventArgs e)
         {
-            ResourceDictionary appResources = Application.Current.Resources;
-
-            Style button = (Style)appResources["ButtonViolett"];
-            Style page = (Style)appResources["PageStyleViolett"];
-            Style progressBar = (Style)appResources["ButtonViolett"];
-
             this.Background = Brushes.LightBlue;
 
             MainPage.background = Brushes.LightBlue;
@@ -53,12 +47,6 @@ namespace KeyboardTrainer
 
         private void Lavanda_Click(object sender, RoutedEventArgs e)
         {
-            ResourceDictionary appResources = Application.Current.Resources;
-
-            Style button = (Style)appResources["ButtonViolett"];
-            Style page = (Style)appResources["PageStyleViolett"];
-            Style progressBar = (Style)appResources["ButtonViolett"];
-
             this.Background = Brushes.Lavender;
 
             MainPage.background = Brushes.Lavender;
@@ -76,12 +64,6 @@ namespace KeyboardTrainer
 
         private void Wheat_Click(object sender, RoutedEventArgs e)
         {
-            ResourceDictionary appResources = Application.Current.Resources;
-
-            Style button = (Style)appResources["ButtonViolett"];
-            Style page = (Style)appResources["PageStyleViolett"];
-            Style progressBar = (Style)appResources["ButtonViolett"];
-
             this.Background = Brushes.Wheat;
 
             MainPage.background = Brushes.Wheat;
@@ -99,12 +81,6 @@ namespace KeyboardTrainer
 
         private void White_Click(object sender, RoutedEventArgs e)
         {
-            ResourceDictionary appResources = Application.Current.Resources;
-
-            Style button = (Style)appResources["ButtonViolett"];
-            Style page = (Style)appResources["PageStyleViolett"];
-            Style progressBar = (Style)appResources["ButtonViolett"];
-
             this.Background = Brushes.White;
 
             MainPage.background = Brushes.White;
