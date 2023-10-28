@@ -31,7 +31,7 @@ namespace KeyboardTrainer
         }
 
         public static SolidColorBrush color = Brushes.Violet;
-        public static SolidColorBrush background = Brushes.AliceBlue;
+        public static SolidColorBrush background = Brushes.LightBlue;
 
         private void ChangeStyle()
         {

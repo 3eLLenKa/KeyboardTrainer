@@ -45,10 +45,10 @@ namespace KeyboardTrainer
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            countRows = File.ReadAllLines("D:\\first_lvl.txt").Length;
-            countLetters = File.ReadAllText("D:\\first_lvl.txt").Length;
+            countRows = File.ReadAllLines("C:\\temp\\first_lvl.txt").Length;
+            countLetters = File.ReadAllText("C:\\temp\\first_lvl.txt").Length;
 
-            StreamReader reader = new StreamReader("D:\\first_lvl.txt");
+            StreamReader reader = new StreamReader("C:\\temp\\first_lvl.txt");
 
             for (int i = 0; i < countRows; i++)
             {
@@ -62,10 +62,10 @@ namespace KeyboardTrainer
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            countRows = File.ReadAllLines(@"D:\second_lvl.txt").Length;
-            countLetters = File.ReadAllText(@"D:\second_lvl.txt").Length;
+            countRows = File.ReadAllLines(@"C:\temp\second_lvl.txt").Length;
+            countLetters = File.ReadAllText(@"C:\temp\second_lvl.txt").Length;
 
-            StreamReader reader = new StreamReader(@"D:\second_lvl.txt");
+            StreamReader reader = new StreamReader(@"C:\temp\second_lvl.txt");
 
             for (int i = 0; i < countRows; i++)
             {
@@ -79,10 +79,10 @@ namespace KeyboardTrainer
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            countRows = File.ReadAllLines(@"D:\third_lvl.txt").Length;
-            countLetters = File.ReadAllText(@"D:\third_lvl.txt").Length;
+            countRows = File.ReadAllLines(@"C:\temp\third_lvl.txt").Length;
+            countLetters = File.ReadAllText(@"C:\temp\third_lvl.txt").Length;
 
-            StreamReader reader = new StreamReader(@"D:\third_lvl.txt");
+            StreamReader reader = new StreamReader(@"C:\temp\third_lvl.txt");
 
             for (int i = 0; i < countRows; i++)
             {
