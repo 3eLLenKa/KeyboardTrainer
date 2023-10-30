@@ -39,13 +39,5 @@
             <Button x:Name="third" Content=" Третий" FontSize="20" Width="150" Height="150" Click="Button_Click_2" FontWeight="DemiBold" Style="{StaticResource CornerRadius}"/>
         </UniformGrid>
         <TextBlock TextWrapping="Wrap" Width="281" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Text="Доступные уровни" Margin="0,70,0,0"/>
-        <Expander Height="115" FontSize="20" Header=" Изменить&#10; язык" Width="121" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,20,20,0">
-            <Grid Height="60">
-                <StackPanel Height="60">
-                    <RadioButton Content="Русский"/>
-                    <RadioButton Content="English"/>
-                </StackPanel>
-            </Grid>
-        </Expander>
     </Grid>
 </Page>
