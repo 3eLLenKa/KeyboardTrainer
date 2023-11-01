@@ -78,6 +78,8 @@ namespace KeyboardTrainer
                 typingTimer.Start();
             }
 
+            if (e.Key == Key.Tab) e.Handled = true; //fix Tab click
+
             if (e.Key == Key.Escape)
             {
                 var result = MessageBox.Show("Вы точно хотите выйти?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -119,7 +121,7 @@ namespace KeyboardTrainer
 
                         text.Clear();
 
-                        progressBar.Value++; //костыль
+                        progressBar.Value++;
                         currentRow = 0;
                         current = 0;
 
