@@ -20,16 +20,7 @@ namespace KeyboardTrainer
 
         private void Violett_Click(object sender, RoutedEventArgs e)
         {
-            this.Background = Brushes.LightBlue;
-
-            MainPage.background = Brushes.LightBlue;
-            MainPage.color = Brushes.Violet;
-
-            Levels.background = Brushes.LightBlue;
-            Levels.color = Brushes.Violet;
-
-            ResultWindow.background = Brushes.LightBlue;
-            ResultWindow.color = Brushes.Violet;
+            ColorSettings.SetViolettTheme();
 
             MessageBox.Show("Настройки применены!", "Инфо", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(new Levels());
@@ -37,16 +28,7 @@ namespace KeyboardTrainer
 
         private void Lavanda_Click(object sender, RoutedEventArgs e)
         {
-            this.Background = Brushes.Lavender;
-
-            MainPage.background = Brushes.Lavender;
-            MainPage.color = Brushes.Pink;
-
-            Levels.background = Brushes.Lavender;
-            Levels.color = Brushes.Pink;
-
-            ResultWindow.background = Brushes.Lavender;
-            ResultWindow.color = Brushes.Pink;
+            ColorSettings.SetLavandaTheme();
 
             MessageBox.Show("Настройки применены!", "Инфо", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(new Levels());
@@ -54,16 +36,7 @@ namespace KeyboardTrainer
 
         private void Wheat_Click(object sender, RoutedEventArgs e)
         {
-            this.Background = Brushes.Wheat;
-
-            MainPage.background = Brushes.Wheat;
-            MainPage.color = Brushes.BlueViolet;
-
-            Levels.background = Brushes.Wheat;
-            Levels.color = Brushes.BlueViolet;
-
-            ResultWindow.background = Brushes.Wheat;
-            ResultWindow.color = Brushes.BlueViolet;
+            ColorSettings.SetWheatTheme();
 
             MessageBox.Show("Настройки применены!", "Инфо", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(new Levels());
@@ -71,16 +44,7 @@ namespace KeyboardTrainer
 
         private void White_Click(object sender, RoutedEventArgs e)
         {
-            this.Background = Brushes.White;
-
-            MainPage.background = Brushes.White;
-            MainPage.color = Brushes.LightBlue;
-
-            Levels.background = Brushes.White;
-            Levels.color = Brushes.LightBlue;
-
-            ResultWindow.background = Brushes.White;
-            ResultWindow.color = Brushes.LightBlue;
+            ColorSettings.SetWhiteTheme();
 
             MessageBox.Show("Настройки применены!", "Инфо", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(new Levels());
