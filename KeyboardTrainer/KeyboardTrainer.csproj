@@ -4,7 +4,8 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF> 
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>keyboard_ico.ico</ApplicationIcon> 
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +18,10 @@
     <None Remove="Resources\violett_theme.png" />
     <None Remove="Resources\wheat_violett.png" />
     <None Remove="Resources\white_blue.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="keyboard_ico.ico" />
   </ItemGroup>
 
   <ItemGroup>
